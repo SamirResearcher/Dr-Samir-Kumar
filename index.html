@@ -1,98 +1,75 @@
-Here’s a refined academic webpage layout with a sidebar for your photo and quick links (ORCID, Vidwan, Google Scholar, LinkedIn). This mirrors the NISER profile style more closely:
+Right now your page is showing everything stacked vertically because the default layout is one column. To make it look horizontal (sidebar on the left, content on the right), you need to adjust the CSS so the page uses a flexbox layout. Here’s how you can fix it:
 
-🌐 Personal Academic Webpage with Sidebar
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Dr. Samir Kumar - Academic Profile</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; }
-    header { background:#002147; color:white; padding:20px; text-align:center; width:100%; }
-    nav { background:#f4f4f4; padding:10px; text-align:center; }
-    nav a { margin:0 15px; text-decoration:none; color:#002147; font-weight:bold; }
-    #sidebar { width:250px; background:#f9f9f9; padding:20px; border-right:1px solid #ddd; }
-    #sidebar img { width:100%; border-radius:5px; margin-bottom:15px; }
-    #sidebar h3 { color:#002147; }
-    #content { flex:1; padding:20px; }
-    section { margin-bottom:30px; }
-    footer { background:#002147; color:white; text-align:center; padding:10px; width:100%; }
-    ul { padding-left:20px; }
-  </style>
-</head>
-<body>
-  <div id="sidebar">
-    <img src="Samir_Image.jpg" alt="Dr. Samir Kumar">
-    <h3>Quick Links</h3>
-    <ul>
-      <li><a href="https://orcid.org/0000-0001-6544-5308" target="_blank">ORCID</a></li>
-      <li><a href="https://vidwan.inflibnet.ac.in/profile/263820" target="_blank">Vidwan Profile</a></li>
-      <li><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></li>
-      <li><a href="https://linkedin.com/in/drsamirkumar" target="_blank">LinkedIn</a></li>
-    </ul>
-  </div>
-  <div id="content">
-    <header>
-      <h1>Dr. Samir Kumar</h1>
-      <p>Assistant Professor (Senior Scale)<br>
-         Hotilal Ramnath College, Amnour<br>
-         Constituent Unit of Jai Prakash University, Chapra</p>
-    </header>
-    <nav>
-      <a href="#bio">Biography</a>
-      <a href="#expertise">Expertise</a>
-      <a href="#research">Research</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#awards">Honours & Awards</a>
-      <a href="#publications">Publications</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <section id="bio">
-      <h2>Biography</h2>
-      <p>Ph.D. (2019), National Institute of Science Education and Research<br>
-         M.Sc. (2011), Jamia Millia Islamia<br>
-         B.Sc. B.Ed. (2009), RIE Bhubaneswar<br>
-         +2 (2005), DAV Public School Jhinkpani</p>
-    </section>
-    <section id="expertise">
-      <h2>Areas of Expertise</h2>
-      <ul>
-        <li>Optics</li>
-        <li>LASER & Nonlinear Optics</li>
-        <li>Nonlinear Spectroscopy</li>
-        <li>Plasmonics</li>
-      </ul>
-    </section>
-    <section id="research">
-      <h2>Research Interests</h2>
-      <p>Photonic crystals, plasmonics, biosensors, nonlinear optics</p>
-    </section>
-    <section id="teaching">
-      <h2>Teaching</h2>
-      <p>Physics courses: Mechanics, Electromagnetism, Optics</p>
-    </section>
-    <section id="awards">
-      <h2>Honours & Awards</h2>
-      <ul>
-        <li>SERB Travel Grant – OSA Advanced Photonics Congress, USA (2019)</li>
-        <li>Best Oral Presentation – Photonics 2016, IIT Kanpur</li>
-        <li>GATE 2012, CSIR NET 2012</li>
-      </ul>
-    </section>
-    <section id="publications">
-      <h2>Selected Publications</h2>
-      <ul>
-        <li>“Dual Sensitive Mode Refractive Index Sensor” – Plasmonics, 2025</li>
-        <li>“Broadband Tamm Plasmon Resonance for Photodetection” – Applied Optics, 2023</li>
-        <li>“Titanium Nitride as a Plasmonic Material” – Photonics & Nanostructures, 2021</li>
-        <li>“Refractive Index Sensing Using Tamm Plasmons” – Journal of Physics D, 2018</li>
-      </ul>
-      <p>Full list available on <a href="https://vidwan.inflibnet.ac.in/profile/263820">Vidwan Profile</a></p>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: hrcphysics.jpu@gmail.com</p>
-      <p>Phone: +91-6203593789 / 7008801464</p>
+🔧 Updated Layout Code (Horizontal Style)
+Replace your <body> section styling with this:
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;          /* enables horizontal layout */
+  }
+  #sidebar {
+    width: 250px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  }
+  #sidebar img {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  #sidebar h3 {
+    color: #002147;
+  }
+  #content {
+    flex: 1;                /* takes remaining horizontal space */
+    padding: 20px;
+  }
+  header {
+    background: #002147;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  nav {
+    background: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+  }
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #002147;
+    font-weight: bold;
+  }
+  section {
+    margin-bottom: 30px;
+  }
+  footer {
+    background: #002147;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+</style>
+
+
+
+📌 What This Does
+- Sidebar stays on the left (photo + quick links).
+- Main content (Biography, Research, Teaching, etc.) flows horizontally to the right.
+
+🎯 Next Step
+- Edit your index.html file in GitHub → replace the old <style> block with the one above.
+- Commit the changes.
+- Refresh your GitHub Pages link:
+https://SamirResearcher.github.io/Dr-Samir-Kumar
+- You’ll now see a horizontal layout with sidebar + content.
+
+👉 Do you want me to also add a card-style design (with subtle shadow and rounded corners for the sidebar) so it looks more polished, like a professional faculty profile?
+
       <p>ORCID: 0000-0001-6544-5308</p>
     </section>
     <footer>
